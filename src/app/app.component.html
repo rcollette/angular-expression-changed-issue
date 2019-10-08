@@ -1,0 +1,36 @@
+<hello name="{{ name }}"></hello>
+<p>
+      <select
+      class="form-control my-2 px-4"
+      id="dropdownDoesNotWork"
+      [(ngModel)]="dropDownValue1"
+      (change)="onChange($event.target.value);"
+    >
+      <option value="">Select</option>
+      <option value="400">400: Bad Request</option>
+      <option value="403">403: Access Denied</option>
+      <option value="404">404: Page Not Found</option>
+      <option value="429">429: Too Many Requests</option>
+      <option value="500">500: Internal Server Error</option>
+      <option value="502">502: Bad Gateway</option>
+      <option value="503">503: Server Busy</option>
+      <option value="504">504: Gateway Timeout</option>
+    </select>
+    <select
+      class="form-control my-2 px-4"
+      id="dropdownWorks"
+      [(ngModel)]="dropDownValue2"
+      #selectModel="ngModel"
+      (change)="selectModel.control.markAsTouched(); onChange($event.target.value);"
+    >
+      <option value="">Select</option>
+      <option value="400">400: Bad Request</option>
+      <option value="403">403: Access Denied</option>
+      <option value="404">404: Page Not Found</option>
+      <option value="429">429: Too Many Requests</option>
+      <option value="500">500: Internal Server Error</option>
+      <option value="502">502: Bad Gateway</option>
+      <option value="503">503: Server Busy</option>
+      <option value="504">504: Gateway Timeout</option>
+    </select>
+</p>
