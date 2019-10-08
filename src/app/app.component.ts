@@ -1,20 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import {NgbModal} from '@'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DemoModalComponent } from './demo-modal/demo-modal.component';
+
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent  {
-  name = 'Angular';
-  public dropDownValue1:string;
-  public dropDownValue2:string;
+export class AppComponent {
+  title = 'ExpressionChangedTest';
 
-  constructor(_modal:NgbModal){
+  public value1: string;
+  public value2: string;
 
+  constructor(private _httpClient: HttpClient) {
   }
 
-  public onChange(value:string){
-    console.log(value);
+  public onChange(value: string) {
+    this._httpClient.get('http://uasdfasdf.com').subscribe(_=> console.log('do nothing'));
   }
 }
