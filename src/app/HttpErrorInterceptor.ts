@@ -42,7 +42,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         if (err.status !== 401) {
           if (request.params instanceof InterceptorHttpParams) {
             if (Array.isArray(request.params.interceptorConfig.statusCodesToIgnore)) {
-              /*Iterate Array*/
               if (request.params.interceptorConfig.statusCodesToIgnore.some(errorCode => errorCode === err.status)) {
                 return throwError(err);
               }
@@ -50,12 +49,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
               return throwError(err);
             }
           }
-          // this._defaultErrorHandler.handleError(err);
           this._openModal(err);
-          // This logs the error to the console, preserving the default behavior.
-          // this._defaultErrorHandler.handleError(err);
-          // We do not throwError because it results in two console logs of the same error.
-          // return of<never>(null);
         }
         return throwError(err);
       })
