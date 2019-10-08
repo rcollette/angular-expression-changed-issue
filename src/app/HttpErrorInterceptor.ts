@@ -6,7 +6,6 @@ import {
   HttpParams,
   HttpRequest
 } from '@angular/common/http';
-import { HttpParamsOptions } from '@angular/common/http/src/params';
 import { ErrorHandler, Injectable } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, throwError } from 'rxjs';
@@ -22,7 +21,7 @@ export class InterceptorHttpParams extends HttpParams {
     public interceptorConfig: { statusCodesToIgnore?: (responseError: HttpErrorResponse) => boolean | number[] },
     params?: { [param: string]: string | string[] }
   ) {
-    super({fromObject: params} as HttpParamsOptions); // Passes through the HttpParams
+    super({fromObject: params}); // Passes through the HttpParams
   }
 }
 
